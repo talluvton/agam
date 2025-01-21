@@ -10,13 +10,11 @@ router = APIRouter(
     tags=['auth']
 )
 
-
 @router.post("/", status_code=status.HTTP_201_CREATED)
-def create_user(user: User):
+async def create_user(user: User):
     return AuthClient.create_user(user)
-    
-    
+
 
 @router.post("/token", response_model=Token)
-def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
+async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
     return AuthClient.login_for_access_token(form_data)
