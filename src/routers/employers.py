@@ -10,8 +10,7 @@ router = APIRouter(prefix="/employers", tags=["Employers"])
 
 @router.get("/search/")
 async def search_employers(user: user_dependency, term: str, page_num: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
-    searched_employers = EmployersClient.search_employers(user, term, page_num, page_size)
-    return searched_employers
+    return EmployersClient.search_employers(user, term, page_num, page_size)
   
 
 @router.post("/create-employer/", status_code=201)

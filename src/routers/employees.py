@@ -10,8 +10,7 @@ user_dependency = Annotated[dict, Depends(AuthClient.get_current_user)]
 
 @router.get("/search/")
 async def search_employees(user: user_dependency, term: str, page_num: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
-    searched_employees = EmloyeesClient.search_employees(user, term, page_num, page_size)
-    return searched_employees
+    return EmloyeesClient.search_employees(user, term, page_num, page_size)
 
 
 @router.post("/create-employee/", status_code=201)
