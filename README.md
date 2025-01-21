@@ -15,13 +15,6 @@ Please note that you will need to create .env file according to the default.env 
 Additionally, In the root of the project, create a folder named data.
 Inside the data folder, place the required CSV files (employees.csv, employers.csv).
 
-├── data/
-│ ├── employees.csv
-│ └── employers.csv
-├── .env
-└── src/
-├── main.py
-
 Use Docker Compose to build and run the application:
 
 `docker-compose up --build`
